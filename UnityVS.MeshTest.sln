@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.MeshTest.CSharp.Plugins", "UnityVS.MeshTest.CSharp.Plugins.csproj", "{CC1C61DF-7A1B-F6CF-85E3-681EF2C905B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.MeshTest.CSharp", "UnityVS.MeshTest.CSharp.csproj", "{66826E19-80DD-ABC2-A331-F421367B7509}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityVS.MeshTest.CSharp.Editor", "UnityVS.MeshTest.CSharp.Editor.csproj", "{7434B870-EA5A-4511-5FC1-51D085D00E81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC1C61DF-7A1B-F6CF-85E3-681EF2C905B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC1C61DF-7A1B-F6CF-85E3-681EF2C905B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC1C61DF-7A1B-F6CF-85E3-681EF2C905B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC1C61DF-7A1B-F6CF-85E3-681EF2C905B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66826E19-80DD-ABC2-A331-F421367B7509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66826E19-80DD-ABC2-A331-F421367B7509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66826E19-80DD-ABC2-A331-F421367B7509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66826E19-80DD-ABC2-A331-F421367B7509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7434B870-EA5A-4511-5FC1-51D085D00E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7434B870-EA5A-4511-5FC1-51D085D00E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7434B870-EA5A-4511-5FC1-51D085D00E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7434B870-EA5A-4511-5FC1-51D085D00E81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
