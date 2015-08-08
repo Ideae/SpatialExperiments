@@ -72,12 +72,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 StartCoroutine(m_JumpBob.DoBobCycle());
                 PlayLandingSound();
-                m_MoveDir.y = 0f;
+                //m_MoveDir.y = 0f;
+                jumpDir = Vector3.zero;
                 m_Jumping = false;
             }
             if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
             {
-                m_MoveDir.y = 0f;
+                //m_MoveDir.y = 0f;
+                jumpDir = Vector3.zero;
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
@@ -91,7 +93,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_NextStep = m_StepCycle + .5f;
         }
 
-
+        Vector3 jumpDir = Vector3.zero;
         private void FixedUpdate()
         {
             float speed;
@@ -105,17 +107,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
                                m_CharacterController.height/2f);
             desiredMove = Vector3.ProjectOnPlane(desiredMove, hitInfo.normal).normalized;
 
-            m_MoveDir.x = desiredMove.x*speed;
-            m_MoveDir.z = desiredMove.z*speed;
-
+            //m_MoveDir.x = desiredMove.x*speed;
+            //m_MoveDir.z = desiredMove.z*speed;
+            m_MoveDir = desiredMove * speed;
 
             if (m_CharacterController.isGrounded)
             {
-                m_MoveDir.y = -m_StickToGroundForce;
+                //m_MoveDir.y = -m_StickToGroundForce;
+                jumpDir = Physics.gravity.normalized * m_StickToGroundForce;
 
                 if (m_Jump)
                 {
-                    m_MoveDir.y = m_JumpSpeed;
+                    //m_MoveDir.y = m_JumpSpeed;
+                    jumpDir = -Physics.gravity.normalized * m_JumpSpeed;
                     PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;
@@ -123,9 +127,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                //m_MoveDir += Physics.gravity*m_GravityMultiplier*Time.fixedDeltaTime;
+                jumpDir += Physics.gravity * m_GravityMultiplier* Time.fixedDeltaTime;
             }
-            m_CollisionFlags = m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+            m_CollisionFlags = m_CharacterController.Move((m_MoveDir + jumpDir) * Time.fixedDeltaTime);
 
             ProgressStepCycle(speed);
             UpdateCameraPosition(speed);
@@ -230,7 +235,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
             }
         }
-
 
         private void RotateView()
         {

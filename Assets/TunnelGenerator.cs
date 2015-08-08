@@ -4,12 +4,16 @@ using System;
 using Random = UnityEngine.Random;
 
 public class TunnelGenerator : ProcBase {
+
+    public bool ApplyGravity = true;
+    public float gravityMultiplier = 10f;
+
     //void Start() {
     //
     //}
-    
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
         
 	}
 
@@ -34,20 +38,30 @@ public class TunnelGenerator : ProcBase {
         float ampUp = Random.Range(0.1f, 5f);
         float ampRight = Random.Range(0.1f, 0.2f);
 
-        
+        float r = 1f;
+        float randUp = Random.Range(-r, r);
+        float randRight = Random.Range(-r, r);
+
+        int range = 10;
+        Quaternion rot = Quaternion.Euler(Random.Range(0, range), Random.Range(0, range), Random.Range(0, range));
 
         for (int i = 0; i < amount; i++)
         {
             BuildQuadDouble(builder, currentPos, tempForward, right);
             currentPos += tempForward;
 
-            float sinefactUp = Mathf.Sin(((float)i / periodUp) * Mathf.PI * 2f) - 0.5f;
-            float sinefactRight = Mathf.Sin(((float)i / periodRight) * Mathf.PI * 2f) - 0.5f;
-            tempForward = forward + up * sinefactUp * ampUp + right * sinefactRight * ampRight;
+            //float sinefactUp = Mathf.Sin(((float)i / periodUp) * Mathf.PI * 2f) - 0.5f;
+            //float sinefactRight = Mathf.Sin(((float)i / periodRight) * Mathf.PI * 2f) - 0.5f;
+            //tempForward = forward + up * sinefactUp * ampUp + right * sinefactRight * ampRight;
+
             //float r = 1f;
             //float randUp = Random.Range(-r, r);
             //float randRight = Random.Range(-r, r);
             //tempForward = forward + up * randUp + right * randRight;
+
+            tempForward = rot * tempForward;
+
+
         }
         return builder.CreateMesh();
     }

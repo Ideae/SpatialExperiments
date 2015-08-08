@@ -40,7 +40,7 @@ public abstract class ProcBase : MonoBehaviour
         if (filter == null)
         {
             filter = gameObject.AddComponent<MeshFilter>();
-            Debug.Log("ADDED MESH FILTER");
+            //Debug.Log("ADDED MESH FILTER");
         }
         filter.sharedMesh = mesh;
 

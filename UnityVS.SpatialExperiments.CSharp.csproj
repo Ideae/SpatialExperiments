@@ -81,6 +81,7 @@
     <Compile Include="Assets\FirstPersonCharacter\Scripts\HeadBob.cs" />
     <Compile Include="Assets\FirstPersonCharacter\Scripts\MouseLook.cs" />
     <Compile Include="Assets\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
+    <Compile Include="Assets\PathGravity.cs" />
     <Compile Include="Assets\ProcMeshTutorial\Common\MeshBuilder.cs" />
     <Compile Include="Assets\ProcMeshTutorial\Common\ProcBase.cs" />
     <Compile Include="Assets\ProcMeshTutorial\Cylinder\ProcCylinder.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\TestRots.cs" />
     <Compile Include="Assets\TunnelGenerator.cs" />
     <Compile Include="Assets\TunnelManager.cs" />
+    <Compile Include="Assets\TunnelSpawner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
